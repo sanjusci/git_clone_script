@@ -27,16 +27,21 @@ class Clone(object):
         if __get_object.status_code == 200:
             if isinstance(__get_object.json(), list):
                 for rp in __get_object.json():
-                    self.clone(rp['clone_url'], final_path)
+                    self.clone(rp, final_path)
             if isinstance(__get_object.json(), dict):
                 rp = __get_object.json()
-                self.clone(rp['clone_url'], final_path)
+                self.clone(rp, final_path)
         else:
             print(__get_object.status_code)
             print(__get_object.text)
 
-    def clone(self, url, path, *args, **kwargs):
-        cmd = 'git clone {}'.format(url)
+    def clone(self, rp, path, *args, **kwargs):
+        if os.path.exists(path + os.sep + rp['name']):
+            path = path + os.sep + rp['name']
+            cmd = 'git pull'
+        else:
+            cmd = 'git clone {}'.format(rp['clone_url'])
+        print('Repo name: {}'.format(rp['name']))
         os.chdir(path)
         os.system(cmd)
 
