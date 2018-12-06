@@ -25,7 +25,7 @@ $ export PYTHONPATH="$PYTHONPATH:." # . corresponds to current directory(project
 Under <project-dir> install requirements/dependencies as
 
 $ pip install -r requirements.txt
-Then run sync.py as
+Then run script.py as
 
 $ python3 script.py -u "git username"
 
