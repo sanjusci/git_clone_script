@@ -3,7 +3,7 @@ certifi==2018.10.15
 chardet==3.0.4
 ethereum-utils==0.6.2
 idna==2.7
-numpy==1.16.2
+numpy==1.22.0
 pexpect==4.6.0
 ptyprocess==0.6.0
 python-logstash==0.4.6
